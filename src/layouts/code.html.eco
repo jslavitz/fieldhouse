@@ -2,21 +2,30 @@
 layout: framed
 ---
 
+<style>
+  li.L0, li.L1, li.L2, li.L3,
+  li.L5, li.L6, li.L7, li.L8
+  { list-style-type: decimal !important }
+</style>
+
 <div style="position:fixed;top:0;left:0;right:0;bottom:0;">
 
 <div id="instructions" class="carousel slide" data-interval="false">
   <div class="carousel-inner">
     <div class="item active">
       <div class="instruction container-margins">
-        <h2><%= @document.title %> <small><%= @document.subtitle %></small></h2>
-        <p><%- @document.mission %>
+        <h1><%= @document.title %> <small><%= @document.subtitle %></small></h1>
+        <p><h3><%- @document.mission %></h3>
       </div>
     </div>
     <% if @document.instructions then for inst in @document.instructions: %>
     <div class="item">
       <div class="instruction container">
         <h2><%= inst.title %> <small><%= inst.subtitle %></small></h1>
-        <p><%- inst.mission %>
+        <h3><%- inst.mission %></h3>
+        <div style="background:blue;">
+          <p><pre class="prettyprint linenums lang-coffeescript"><%- inst.missioncode %></pre></p>
+        </div>
       </div>
     </div>
     <% end %>
@@ -24,11 +33,11 @@ layout: framed
   <a class="left carousel-control" href="#instructions" style="display:none" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" style="left:5px"></span></a>
   <a class="right carousel-control" href="#instructions" data-slide="next"><span class="glyphicon glyphicon-chevron-right" style="right:5px;left:inherit"></span></a>
 
-<% if @document.instructions: %>
-<div id="more" class="btn btn-default topright">More Ideas&nbsp;
-<span class="glyphicon glyphicon-circle-arrow-right"></span></div>
-<% end %>
-</div>
+  <% if @document.instructions: %>
+  <div id="more" class="btn btn-default topright">Next&nbsp;
+  <span class="glyphicon glyphicon-circle-arrow-right"></span></div>
+  <% end %>
+  </div>
 
 <% if @document.teaser : %>
 <xmp id="teaser" class="data"><%- @document.teaser %></xmp>
@@ -92,6 +101,7 @@ $(window).on 'error', (e) ->
 <%- @content %>
 </xmp>
 </article>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 <script src="//pencilcode.net/lib/pencilcodeembed.js"></script>
 <script>
 

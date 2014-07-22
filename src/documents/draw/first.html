@@ -1,10 +1,20 @@
 ---
-title: First Dot
+title: Images
+subtitle: Can you draw an image from a webpage?
 mission: >
   Pick a <a href="/ref/colors.html" target="reference">color</a>
   and make a dot.  Can you adjust the color and the size?
+
 instructions:
-  - title: Donut
+  - title: Start Moving
+    mission: >
+      Use the code below to get your image in motion.
+    missioncode: |
+      fd 100 #move forward by 100 pixels
+      bk 100 #move backward by 100 pixels
+      rt 45 #turn right 45 degrees
+      lt 58 #turn left 58 degrees
+  - title: Size It
     mission: >
       If you add a second line of code to your program, you can draw
       a second dot.  Drawing a smaller dot on top of a bigger dot will
@@ -22,7 +32,6 @@ codeOrder: 1
 thumb: 'dot'
 refs: ['colors', 'dot', 'pen', 'fd']
 code: |
-  dot purple, 100
 ---
 dotcount = 0
 cssc = [
